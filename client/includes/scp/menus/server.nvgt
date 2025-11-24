@@ -21,6 +21,7 @@ namespace scp::menus {
 			c.add("stop all vehicles", "svehicles");
 			c.add("stop all motors", "smotors");
 			c.add("Destroy a team", "tdest");
+			c.add("notify all online players","pntfy");
 		}
 		if (c.get_item_length() < 1) return;
 		c.create("Server Management Panel", true);
@@ -72,7 +73,12 @@ namespace scp::menus {
 				scp::actions::server::tdest();
 				break;
 			}
+else if (r == "pntfy") {
+    scp::actions::server::pntfy();
+    break;
+}
 		}//While
 		return;
-	}//End
+	}
+//end
 }
