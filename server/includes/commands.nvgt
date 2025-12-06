@@ -2672,6 +2672,39 @@ menu.send(p.peer_id);
 			} else
 				send_reliable(e.peer_id, "player not found", 2);
 		}
+	} else if (parsed[0] == "/moveall"	&&	parsed.length() > 3) {
+		if (p.is_admin()) {
+			int x = string_to_number(parsed[1]);
+			int y = string_to_number(parsed[2]);
+			int z = string_to_number(parsed[3]);
+			string target_map = "";
+			bool custom_map = (parsed.length() == 5);
+			if (custom_map) {
+				target_map = parsed[4];
+				if (!map_exists(target_map)) {
+					send_reliable(e.peer_id, "this map does not exist", 0);
+					return;
+				}
+			}
+			string log_text = p.name + " moved all players to " + x + ", " + y + ", " + z;
+			if (custom_map)
+				log_text += " on " + target_map;
+			else
+				log_text += " (each kept own map)";
+			log_text += " moved players: ";
+			for (int i = 0; i < players.length(); i++) {
+				string map_to_use = players[i].map;
+				if (custom_map) map_to_use = target_map;
+				players[i].supersafe = true;
+				players[i].movedbyadmin = true;
+				move_player(players[i], map_to_use, x, y, z, true);
+				log_text += players[i].name + ", ";
+			}
+			if (log_text.length() > 2)
+				log_text = log_text.substr(0, log_text.length() - 2);
+			log("moveall", log_text, false, false);
+			send_reliable(e.peer_id, "all players moved", 2);
+		}
 	} else if (parsed[0] == "/ip" and p.is_manager() and parsed.length() > 1) {
 		int index2 = get_player_index_from(parsed[1]);
 		if (index2 > -1)
