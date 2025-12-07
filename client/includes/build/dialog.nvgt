@@ -10,7 +10,7 @@ void builddialog() {
         int d = form.create_input_box("type the maximum &y of the dialog area");
         int e = form.create_input_box("type the minimum &z of the dialog area");
         int f = form.create_input_box("type the maximum &z of the dialog area");
-        int g = form.create_input_box("enter dialog texts, separate them with == (e.g. hi == how are you)", "", "", 0, false, false);
+        int g = form.create_input_box("enter dialog texts, separate them with = (e.g. hi = how are you)", "", "", 0, false, false);
         form.set_disallowed_chars(a, nums, true);
         form.set_disallowed_chars(b, nums, true);
         form.set_disallowed_chars(c, nums, true);
@@ -54,7 +54,7 @@ void builddialog() {
         int b = form.create_input_box("type the maximum &x of the dialog area");
         int c = form.create_input_box("type the minimum &y of the dialog area");
         int d = form.create_input_box("type the maximum &y of the dialog area");
-        int e = form.create_input_box("enter dialog texts, separate them with == (e.g. hi == how are you)", "", "", 0, false, false);
+        int e = form.create_input_box("enter dialog texts, separate them with = (e.g. hi = how are you)", "", "", 0, false, false);
         form.set_disallowed_chars(a, nums, true);
         form.set_disallowed_chars(b, nums, true);
         form.set_disallowed_chars(c, nums, true);
