@@ -3,7 +3,7 @@ void buildntm() {
         form.reset();
         string nums = "1234567890-";
         string nx, ny, nz, id;
-	form.create_window("NTM", false);
+	form.create_window("nutrition machine", false);
 	int a = form.create_input_box("type the x coordinate of the nutrition machine");
 	int b = form.create_input_box("type the y coordinate of the nutrition machine");
 	int c = form.create_input_box("type the z coordinate of the nutrition machine");
@@ -42,7 +42,7 @@ void buildntm() {
         form.reset();
         string nums = "1234567890-";
         string nx, ny, id;
-	form.create_window("NTM", false);
+	form.create_window("nutrition machine", false);
 	int a = form.create_input_box("type the x coordinate of the nutrition machine");
 	int b = form.create_input_box("type the y coordinate of the nutrition machine");
 	int c = form.create_input_box("type the ID of the nutrition machine");
