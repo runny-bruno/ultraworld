@@ -869,8 +869,24 @@ void mainmenu(bool fromgame = false) {
 		urlopen(app.website);
 		mainmenu();
 	}
-		else if(result=="misc:Restart the game") {
-		restart();
+		else if(result=="misc:Restart the game")
+{
+if (!SCRIPT_COMPILED)
+{
+writeprefs();
+wait(50);
+speak("Restarting.");
+run("C:/nvgt/nvgtw.exe","uw.nvgt",false, false);
+exit();
+}
+else
+{
+writeprefs();
+wait(50);
+speak("Restarting.");
+run("uw.exe","",false, false);
+exit();
+}
 		}
 	else if(result=="misc:Check for updates") {
 		s.fade_music(20);
