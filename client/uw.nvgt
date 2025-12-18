@@ -1103,7 +1103,6 @@ void exitgame(bool return_to_menu = true) {
 	send_reliable(0, "close", 0);
 	client::destruct();
 	reset_network();
-	if (autologin == 1) exit();
 	m.reset(true);
 	if (return_to_menu) mainmenu();
 	players.resize(0);
