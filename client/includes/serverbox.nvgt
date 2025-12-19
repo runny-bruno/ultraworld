@@ -43,28 +43,15 @@ break;
 }
 else if(form.is_pressed(send))
 {
-string msg=form.get_text(message);
-			if(msg=="")
+if(form.get_text(message)=="")
 {
 speak("you can't send an empty chat");
-keys_pressed();
-get_characters();
-inbox=false;
-form.reset();
-break;
-}
-if(autosend>=1)
-{
-string clipped=string_replace(msg, " ", "[SPCE]", true);
-				send_reliable(peer_id, sendtext+" "+clipped, 0);
-get_characters();
-inbox=false;
 form.reset();
 break;
 }
 else
 {
-				send_reliable(peer_id, sendtext+" "+msg, 0);
+send_reliable(peer_id, sendtext+" "+form.get_text(message), 0);
 get_characters();
 inbox=false;
 form.reset();
